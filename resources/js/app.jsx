@@ -5,14 +5,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Import your components/pages
 import Login from './pages/login.jsx';
 // import Home from './pages/home.jsx';
-// import Dashboard from './pages/dashboard.jsx';
+import Dashboard from './pages/dashboard.jsx';
 // import NotFound from './pages/404.jsx';
 
 const App = () => {
   return (
     <Router>
       <Routes>       
-        <Route path="/login" element={<Login />} />        
+        <Route path="/login" element={<Login />} />   
+        <Route path="/dashboard" element={<Dashboard />} />      
       </Routes>
     </Router>
   );
