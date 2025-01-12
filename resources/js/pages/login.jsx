@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignIn = () => {
+const Login = () => {
   return (
     <div className="auth-page-wrapper pt-5">
       {/* Auth page background */}
@@ -141,4 +141,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;

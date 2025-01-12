@@ -1,20 +1,30 @@
-// import './bootstrap';
-// import { createInertiaApp } from '@inertiajs/react'
-// import { createRoot } from 'react-dom/client'
-
-// createInertiaApp({
-//   resolve: name => {
-//     const pages = import.meta.glob('./pages/**/*.jsx', { eager: true })
-//     return pages[`./pages/${name}.jsx`]
-//   },
-//   setup({ el, App, props }) {
-//     createRoot(el).render(<App {...props} />)
-//   },
-// })
-
-import './bootstrap.js';
+// import './bootstrap.js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './pages/login.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Import your components/pages
+import Login from './pages/login.jsx';
+// import Home from './pages/home.jsx';
+// import Dashboard from './pages/dashboard.jsx';
+// import NotFound from './pages/404.jsx';
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>       
+        <Route path="/login" element={<Login />} />        
+      </Routes>
+    </Router>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(<Home />);
+root.render(<App />);
+
+
+
+//  {/* Define your routes */}
+//  <Route path="/" element={<Home />} />
+// <Route path="/dashboard" element={<Dashboard />} />
+// {/* 404 Page */}
+// <Route path="*" element={<NotFound />} />
