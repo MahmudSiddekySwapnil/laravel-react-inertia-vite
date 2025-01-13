@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', function () {
-    return view('mainfile');
+    return view('loginTemplate');
 });
 
 Route::get('/dashboard',function ()  {
     
-    return view('dashboard');
+    return view('layouts.layouts');
 });

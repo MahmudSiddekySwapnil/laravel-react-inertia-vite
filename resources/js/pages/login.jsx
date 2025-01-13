@@ -1,17 +1,18 @@
 import React from "react";
 
+
 const Login = () => {
   return (
     <div className="auth-page-wrapper pt-5">
       {/* Auth page background */}
-      <div className="auth-one-bg-position auth-one-bg" id="auth-particles">
+      {/* <div className="auth-one-bg-position auth-one-bg" id="auth-particles">
         <div className="bg-overlay"></div>
         <div className="shape">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
             <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
           </svg>
         </div>
-      </div>
+      </div> */}
 
       {/* Auth page content */}
       <div className="auth-page-content">
@@ -21,10 +22,10 @@ const Login = () => {
               <div className="text-center mt-sm-5 mb-4 text-white-50">
                 <div>
                   <a href="/" className="d-inline-block auth-logo">
-                    <img src="/assets/images/logo-light.png" alt="Logo" height="20" />
+                    <img src="/assets/images/padakhep/podokhep_logo.png" alt="Logo"  style={{height:100,}} />
                   </a>
                 </div>
-                <p className="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
+                {/* <p className="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p> */}
               </div>
             </div>
           </div>
@@ -35,7 +36,7 @@ const Login = () => {
                 <div className="card-body p-4">
                   <div className="text-center mt-2">
                     <h5 className="text-primary">Welcome Back !</h5>
-                    <p className="text-muted">Sign in to continue to Velzon.</p>
+                    <p className="text-muted">Sign in to continue to Podokhep.</p>
                   </div>
                   <div className="p-2 mt-4">
                     <form action="/index.html">
@@ -85,7 +86,7 @@ const Login = () => {
                         </button>
                       </div>
 
-                      <div className="mt-4 text-center">
+                      {/* <div className="mt-4 text-center">
                         <div className="signin-other-title">
                           <h5 className="fs-13 mb-4 title">Sign In with</h5>
                         </div>
@@ -103,20 +104,20 @@ const Login = () => {
                             <i className="ri-twitter-fill fs-16"></i>
                           </button>
                         </div>
-                      </div>
+                      </div> */}
                     </form>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-4 text-center">
+              {/* <div className="mt-4 text-center">
                 <p className="mb-0">
                   Don't have an account?{" "}
                   <a href="/auth-signup-basic.html" className="fw-semibold text-primary text-decoration-underline">
                     Signup
                   </a>
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -129,8 +130,7 @@ const Login = () => {
             <div className="col-lg-12">
               <div className="text-center">
                 <p className="mb-0 text-muted">
-                  &copy; {new Date().getFullYear()} Velzon. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger"></i> by Themesbrand
+                  &copy; {new Date().getFullYear()} Powered by Analyzen <img src="/assets/images/padakhep/analyzenlogo.png" alt="Logo"  style={{height:30,}} />
                 </p>
               </div>
             </div>
