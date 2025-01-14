@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://127.0.0.1:8002/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: username,
+          password: password,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+    console.log("Response:", data);
+
+    if (data.token) {
+      // Store the token in local storage
+      localStorage.setItem("authToken", data.token);
+
+      // Redirect to the dashboard
+      window.location.href = "/dashboard";
+    } else {
+      console.error("Login failed:", data.message);
+      alert(data.message || "Login failed. Please try again.");
+    }
+
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+  };
+
+
   return (
     <div className="auth-page-wrapper pt-5">
       {/* Auth page background */}
@@ -39,12 +81,20 @@ const Login = () => {
                     <p className="text-muted">Sign in to continue to Podokhep.</p>
                   </div>
                   <div className="p-2 mt-4">
-                    <form action="/index.html">
+                    <form onSubmit={handleLogin}>
                       <div className="mb-3">
                         <label htmlFor="username" className="form-label">
                           Username
                         </label>
-                        <input type="text" className="form-control" id="username" placeholder="Enter username" />
+                        <input 
+                          type="text"
+                          className="form-control"
+                          id="username"
+                          placeholder="Enter username"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          required
+                        />
                       </div>
 
                       <div className="mb-3">
@@ -59,12 +109,15 @@ const Login = () => {
                         <div className="position-relative auth-pass-inputgroup mb-3">
                           <input
                             type="password"
-                            className="form-control pe-5 password-input"
+                            className="form-control"
                             id="password-input"
                             placeholder="Enter password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
                           />
                           <button
-                            type="button"
+                            type="submit"
                             className="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
                             id="password-addon"
                           >
